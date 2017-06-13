@@ -11,6 +11,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from forms import *
+from models import Books
 
 
 @csrf_protect
@@ -49,7 +50,10 @@ def logout_page(request):
 
 @login_required
 def home(request):
+    #import pdb;pdb.set_trace()
+    all_books = Books.objects.all()
+
     return render_to_response(
         'home.html',
-        {'user': request.user}
+        {'user': request.user, 'books': all_books}
     )

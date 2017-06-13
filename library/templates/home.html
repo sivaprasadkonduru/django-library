@@ -1,7 +1,27 @@
 {% extends "base.html" %}
-{% block title %}Welcome to Django{% endblock %}
+{% block title %}Welcome to Library Management{% endblock %}
 {% block head %}Welcome to Django{% endblock %}
 {% block content %}
     <p>Welcome {{ user.username }} !!!</p>
+    <table border="1">
+        <tr>
+            <td> Book Name </td>
+            <td> Author </td>
+            <td> Edition </td>
+            <td> Publisher </td>
+            <td> Category </td>
+            <td> Price </td>
+        </tr>
+        {% for val in books %}
+        <tr>
+            <td> {{val.name}}</td>
+            <td> {{val.author}}</td>
+            <td> {{val.edition}}</td>
+            <td> {{val.publisher}}</td>
+            <td> {{val.category}}</td>
+            <td> {{val.price}}</td>
+        </tr>
+        {% endfor %}
+    </table>
     <a href="/logout/">Logout</a>
 {% endblock %}
