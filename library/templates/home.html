@@ -1,27 +1,58 @@
 {% extends "base.html" %}
-{% block title %}Welcome to Library Management{% endblock %}
-{% block head %}Welcome to Django{% endblock %}
+
+{% block head %}<center>Welcome to Library Management</center>{% endblock %}
+
 {% block content %}
-    <p>Welcome {{ user.username }} !!!</p>
-    <table border="1">
-        <tr>
-            <td> Book Name </td>
-            <td> Author </td>
-            <td> Edition </td>
-            <td> Publisher </td>
-            <td> Category </td>
-            <td> Price </td>
-        </tr>
-        {% for val in books %}
-        <tr>
-            <td> {{val.name}}</td>
-            <td> {{val.author}}</td>
-            <td> {{val.edition}}</td>
-            <td> {{val.publisher}}</td>
-            <td> {{val.category}}</td>
-            <td> {{val.price}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a href="/logout/">Logout</a>
+ <body bgcolor=#99ffcc>
+ 
+ <p style = "margin-left:85%;color:#336600">Welcome {{ user.username }} !!!</p>
+  <center> 
+
+  <select>
+       
+       <!-- res=[]
+       {% for cat in books %}
+	      {% if cat.category not in res %}
+               res.append(cat.category)
+          {% endif %}
+	   {% endfor %}-->
+
+	   {% for cat in books %}
+	      <option value="{{cat.category}}">{{cat.category}}</option>
+       {% endfor %} 
+	   <!-- 
+	   <option value="Programming">Programming</option>
+       <option value="Admin">Admin</option>
+       <option value="Business">Business</option> -->
+		
+  </select>
+  <button type="button">Search</button>
+  <br>
+  <br>
+  
+	<table style="width:75%" border = 2>
+	<tr>
+	    
+		<td><h3>Book Name</h3></td>
+		<td><h3>Author</h3></td>
+		<td><h3>Edition</h3></td>
+		<td><h3>Publisher</h3></td>
+		<td><h3>Category</h3></td>
+		<td><h3>Price</h3></td>
+       
+	</tr>
+	{% for val in books %}
+	<tr>
+		<td>{{val.name}}</td>
+		<td>{{val.author}}</td>
+		<td>{{val.edition}}</td>
+		<td>{{val.publisher}}</td>
+		<td>{{val.category}}</td>
+		<td>{{val.price}}</td>
+	</tr>
+	{% endfor %}
+	
+	</table>
+  <br><br>
+  <a href="/logout/"><h4>Logout</h4></a></center>
 {% endblock %}
