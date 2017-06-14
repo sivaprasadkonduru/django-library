@@ -16,9 +16,8 @@
                res.append(cat.category)
           {% endif %}
 	   {% endfor %}-->
-
-	   {% for cat in books %}
-	      <option value="{{cat.category}}">{{cat.category}}</option>
+	   {% for cat in category %}
+	      <option value="{{cat}}">{{cat}}</option>
        {% endfor %} 
 	   <!-- 
 	   <option value="Programming">Programming</option>

@@ -50,10 +50,9 @@ def logout_page(request):
 
 @login_required
 def home(request):
-    #import pdb;pdb.set_trace()
     all_books = Books.objects.all()
-
+    category = set(all_books.values_list('category', flat=True))
     return render_to_response(
         'home.html',
-        {'user': request.user, 'books': all_books}
+        {'user': request.user, 'books': all_books, 'category': category}
     )
