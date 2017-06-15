@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^register/$', register),
     url(r'^register/success/$', register_success),
     url(r'^home/$', home),
+    url(r'^home/get_books/$', get_categories)
 ]

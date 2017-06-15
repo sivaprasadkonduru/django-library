@@ -7,8 +7,8 @@
  
  <p style = "margin-left:85%;color:#336600">Welcome {{ user.username }} !!!</p>
   <center> 
-
-  <select>
+<form action="get_books/" method="post"> {% csrf_token %}
+  <select name="dropdown">
        
        <!-- res=[]
        {% for cat in books %}
@@ -23,9 +23,10 @@
 	   <option value="Programming">Programming</option>
        <option value="Admin">Admin</option>
        <option value="Business">Business</option> -->
-		
+
   </select>
-  <button type="button">Search</button>
+  <button type="submit">Search</button>
+</form>
   <br>
   <br>
   
@@ -40,7 +41,9 @@
 		<td><h3>Price</h3></td>
        
 	</tr>
+
 	{% for val in books %}
+
 	<tr>
 		<td>{{val.name}}</td>
 		<td>{{val.author}}</td>
@@ -50,8 +53,10 @@
 		<td>{{val.price}}</td>
 	</tr>
 	{% endfor %}
-	
+
 	</table>
   <br><br>
   <a href="/logout/"><h4>Logout</h4></a></center>
 {% endblock %}
+
+ <input type="submit" value="Add">

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block head %}<center>Welcome to Library Management</center>{% endblock %}
+
+{% block content %}
+ <body bgcolor=#99ffcc>
+
+ <p style = "margin-left:85%;color:#336600">Welcome {{ user.username }} !!!</p>
+  <center>
+	<table style="width:75%" border = 2>
+	<tr>
+
+		<td><h3>Book Name</h3></td>
+		<td><h3>Author</h3></td>
+		<td><h3>Edition</h3></td>
+		<td><h3>Publisher</h3></td>
+		<td><h3>Category</h3></td>
+		<td><h3>Price</h3></td>
+
+	</tr>
+
+	{% for val in data %}
+
+	<tr>
+		<td>{{val.name}}</td>
+		<td>{{val.author}}</td>
+		<td>{{val.edition}}</td>
+		<td>{{val.publisher}}</td>
+		<td>{{val.category}}</td>
+		<td>{{val.price}}</td>
+	</tr>
+	{% endfor %}
+
+	</table>
+  <br><br>
+  <a href="/logout/"><h4>Logout</h4></a></center>
+{% endblock %}
+
+ <input type="submit" value="Add">
