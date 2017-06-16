@@ -10,11 +10,27 @@
 <form action="get_books/" method="post"> {% csrf_token %}
   <select name="dropdown">
        
+<<<<<<< HEAD
        
 	   {% for cat in category %}
 	      <option value="{{cat}}">{{cat}}</option>
        {% endfor %} 
 	   
+=======
+       <!-- res=[]
+       {% for cat in books %}
+	      {% if cat.category not in res %}
+               res.append(cat.category)
+          {% endif %}
+	   {% endfor %}-->
+	   {% for cat in category %}
+	      <option value="{{cat}}">{{cat}}</option>
+       {% endfor %} 
+	   <!-- 
+	   <option value="Programming">Programming</option>
+       <option value="Admin">Admin</option>
+       <option value="Business">Business</option> -->
+>>>>>>> fda27b4d8a344fcbd8c9a47b01794a133a38582c
 
   </select>
   <button type="submit">Search</button>
@@ -51,3 +67,7 @@
   <a href="/logout/"><h4>Logout</h4></a></center>
 {% endblock %}
 
+<<<<<<< HEAD
+=======
+ <input type="submit" value="Add">
+>>>>>>> fda27b4d8a344fcbd8c9a47b01794a133a38582c
