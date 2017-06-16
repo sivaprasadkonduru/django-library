@@ -10,9 +10,9 @@ from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
+from django.views.decorators.csrf import csrf_exempt
 from forms import *
-from models import Books
-
+from models import *
 
 @csrf_protect
 def register(request):
@@ -50,10 +50,26 @@ def logout_page(request):
 
 @login_required
 def home(request):
-    #import pdb;pdb.set_trace()
     all_books = Books.objects.all()
-
+    category = set(all_books.values_list('category',flat =True)) 	
+	
     return render_to_response(
         'home.html',
-        {'user': request.user, 'books': all_books}
+        {'user': request.user,'books':all_books,'category':category,}
     )
+
+@csrf_exempt
+def get_categories(request):
+
+    '''This could be your actual view or a new one'''
+    # Your code
+    #import pdb;
+    #pdb.set_trace()
+    if request.method == 'POST': # If the form is submitted
+        selected_value = request.POST['dropdown']
+        data = Books.objects.filter(category=selected_value)
+
+    return render_to_response('get_categories.html',
+        {'user': request.user, 'data': data})
+
+	
