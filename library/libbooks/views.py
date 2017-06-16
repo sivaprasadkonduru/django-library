@@ -51,25 +51,15 @@ def logout_page(request):
 @login_required
 def home(request):
     all_books = Books.objects.all()
-<<<<<<< HEAD
-    category = set(all_books.values_list('category',flat =True)) 	
-	
-    return render_to_response(
-        'home.html',
-        {'user': request.user,'books':all_books,'category':category,}
-    )
 
-=======
     category = set(all_books.values_list('category', flat=True))
-   # if request.method == 'GET':
-    #all_books = request.GET.get('search_box',flat = True)
 
     return render_to_response(
         'home.html',
         {'user': request.user, 'books': all_books, 'category': category}
     )
     # code to deal with the "Add" form
->>>>>>> fda27b4d8a344fcbd8c9a47b01794a133a38582c
+
 @csrf_exempt
 def get_categories(request):
 
@@ -84,15 +74,3 @@ def get_categories(request):
     return render_to_response('get_categories.html',
         {'user': request.user, 'data': data})
 
-<<<<<<< HEAD
-	
-=======
-
-
-
-
-
-
-
-
->>>>>>> fda27b4d8a344fcbd8c9a47b01794a133a38582c

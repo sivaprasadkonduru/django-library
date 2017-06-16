@@ -29,10 +29,7 @@ urlpatterns = [
     url(r'^register/$', register),
     url(r'^register/success/$', register_success),
     url(r'^home/$', home),
-<<<<<<< HEAD
     url(r'^home/get_books/$', get_categories),
 	url(r'^home/get_books/Back/$', home)
-=======
-    url(r'^home/get_books/$', get_categories)
->>>>>>> fda27b4d8a344fcbd8c9a47b01794a133a38582c
+
 ]
